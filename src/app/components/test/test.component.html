@@ -1,0 +1,57 @@
+<p>Hello Formalab</p>
+<p>{{ title }}</p>
+
+<ul *ngFor="let user of users;let i = index">
+  <li class="text-primary">
+    {{ user }}
+    <button (click)="deleteUser(user,i)" class="btn btn-sm btn-danger">
+      <i class="far fa-trash-alt"></i>
+    </button>
+  </li>
+</ul>
+
+<br>
+
+<div *ngIf="notification" class="alert" [ngClass]="{
+  'alert-danger':isError(),
+  'alert-success':!isError()
+}">
+  New Alert
+</div>
+<hr>
+
+<h2>Personl Informations</h2>
+<p> Firstname : {{ JSONuser.firstname }} </p>
+<p> Lastname : {{ JSONuser.lastname }}</p>
+<p> Phone : {{ JSONuser.phone }}</p>
+<h2>Address Informations</h2>
+<p> City : {{ JSONuser.address.city }}</p>
+<p> Zip Code : {{ JSONuser.address.zip }}</p>
+<p> Street : {{ JSONuser.address.street }}</p>
+
+<hr> 
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Firstname</th>
+      <th>Lastname</th>
+      <th>Phone</th>
+      <th>City</th>
+      <th>Zip Code</th>
+      <th>Street</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of JSONusersArray;let i = index">
+      <td>{{ i + 1 }}</td>
+      <td>{{ user.firstname }}</td>
+      <td>{{ user.lastname }}</td>
+      <td>{{ user.phone }}</td>
+      <td>{{ user.address.city }}</td>
+      <td>{{ user.address.zip }}</td>
+      <td>{{ user.address.street }}</td>
+    </tr>
+  </tbody>
+</table>
