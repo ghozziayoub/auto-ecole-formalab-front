@@ -4,6 +4,73 @@
         <!--header-->
         <app-header></app-header>
 
+        <div class="site-section bg-image2 overlay" id="contact-section"
+            style="background-image: url('assets/images/hero_1.jpg');">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-7 my-5">
+
+                        <form [formGroup]="registerForm" (ngSubmit)="registerUser()" class="p-5 bg-white">
+
+                            <h2 class="h4 text-black mb-5">Register Form</h2>
+
+                            <div class="row form-group">
+                                <div class="col-md-6 mb-3 mb-md-0">
+                                    <label class="text-black" for="fname">First Name</label>
+                                    <input formControlName="firstname" type="text" id="fname" class="form-control rounded-0">
+                                    <div *ngIf="myfirstname.touched && myfirstname.invalid" class="text-danger text-sm">
+                                        <div *ngIf="myfirstname.errors.required">Firstname is required</div>
+                                        <div *ngIf="myfirstname.errors.pattern">Firstname is invalid</div>
+                                        <div *ngIf="myfirstname.errors.minlength">Firstname must contains 2 characters at least</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="text-black" for="lname">Last Name</label>
+                                    <input formControlName="lastname" type="text" id="lname" class="form-control rounded-0">
+                                </div>
+                            </div>
+
+                            <div class="row form-group">
+
+                                <div class="col-md-12">
+                                    <label class="text-black" for="email">Email</label>
+                                    <input formControlName="email" type="email" id="email" class="form-control rounded-0">
+                                </div>
+                            </div>
+
+                            <div class="row form-group">
+
+                                <div class="col-md-12">
+                                    <label class="text-black" for="phone">Phone</label>
+                                    <input formControlName="phone" type="text" id="phone" class="form-control rounded-0">
+                                </div>
+
+                            </div>
+
+                            <div class="row form-group">
+                                <div class="col-md-6">
+                                    <label class="text-black" for="password">Password</label>
+                                    <input formControlName="password" type="password" id="password" class="form-control rounded-0">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="text-black" for="confirmPassword">Confirm Password</label>
+                                    <input formControlName="confirmPassword" type="password" id="confirmPassword" class="form-control rounded-0">
+                                </div>
+                            </div>
+
+                            <div class="row form-group">
+                                <div class="col-md-12">
+                                    <input type="submit" value="Register" class="btn btn-primary mr-2 mb-2">
+                                </div>
+                            </div>
+
+
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
 
         <!--footer-->
         <app-footer></app-footer>

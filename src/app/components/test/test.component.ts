@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-test',
@@ -7,9 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TestComponent implements OnInit {
 
-  constructor() { }
+  usersFromAPI = [];
+
+  constructor(private _userService: UserService) { }
 
   ngOnInit(): void {
+    this.getAllUsersFromAPI()
+  }
+
+  getAllUsersFromAPI() {
+    this._userService.getAllUsers().subscribe(
+      //first function
+      res => this.usersFromAPI = res
+      ,
+      //second function
+      err => console.log(err)
+    )
   }
 
   title: String = 'DATA FROM Database';

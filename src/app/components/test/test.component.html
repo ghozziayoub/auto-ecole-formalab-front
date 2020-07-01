@@ -29,7 +29,7 @@
 <p> Zip Code : {{ JSONuser.address.zip }}</p>
 <p> Street : {{ JSONuser.address.street }}</p>
 
-<hr> 
+<hr>
 
 <table class="table">
   <thead>
@@ -55,3 +55,9 @@
     </tr>
   </tbody>
 </table>
+
+<hr>
+
+<ul *ngFor="let user of usersFromAPI">
+  <li>{{user.name}}</li>
+</ul>
